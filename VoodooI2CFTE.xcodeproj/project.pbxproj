@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FC036F7258E636C0026BA14 /* libkmod.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC036F6258E636C0026BA14 /* libkmod.a */; };
 		7B30D6A41F91262100190488 /* VoodooI2CFTETouchpadDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7B30D6A21F91262100190488 /* VoodooI2CFTETouchpadDriver.cpp */; };
 		7B30D6A51F91262100190488 /* VoodooI2CFTETouchpadDriver.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 7B30D6A31F91262100190488 /* VoodooI2CFTETouchpadDriver.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0FC036F6258E636C0026BA14 /* libkmod.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libkmod.a; path = ../../MacKernelSDK/Library/x86_64/libkmod.a; sourceTree = "<group>"; };
 		7B30D6871F910BAB00190488 /* VoodooI2CFTE.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoodooI2CFTE.kext; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B30D68E1F910BAB00190488 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B30D6A21F91262100190488 /* VoodooI2CFTETouchpadDriver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VoodooI2CFTETouchpadDriver.cpp; sourceTree = "<group>"; };
@@ -26,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FC036F7258E636C0026BA14 /* libkmod.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +66,7 @@
 		7B30D6A91F9151AE00190488 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0FC036F6258E636C0026BA14 /* libkmod.a */,
 				7B30D6AC1F9151B300190488 /* IOKit.framework */,
 				7B30D6AA1F9151AE00190488 /* Kernel.framework */,
 			);
@@ -179,6 +183,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -222,7 +227,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				KERNEL_EXTENSION_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../../MacKernelSDK/Headers";
+				KERNEL_FRAMEWORK_HEADERS = "$(PROJECT_DIR)/../../MacKernelSDK/Headers";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -233,6 +240,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -270,7 +278,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				KERNEL_EXTENSION_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../../MacKernelSDK/Headers";
+				KERNEL_FRAMEWORK_HEADERS = "$(PROJECT_DIR)/../../MacKernelSDK/Headers";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
@@ -282,13 +292,15 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.0.0d1;
 				INFOPLIST_FILE = "$(SRCROOT)/VoodooI2CFTE/Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../../MacKernelSDK/Library/x86_64",
+				);
 				MODULE_NAME = me.kishorprins.VoodooI2CFTE;
 				MODULE_VERSION = 1.0.0d1;
 				"OTHER_CPLUSPLUSFLAGS[arch=*]" = "$(OTHER_CFLAGS)";
 				PRODUCT_BUNDLE_IDENTIFIER = me.kishorprins.VoodooI2CFTE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
 				WRAPPER_EXTENSION = kext;
 			};
 			name = Debug;
@@ -299,13 +311,15 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.0.0d1;
 				INFOPLIST_FILE = "$(SRCROOT)/VoodooI2CFTE/Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../../MacKernelSDK/Library/x86_64",
+				);
 				MODULE_NAME = me.kishorprins.VoodooI2CFTE;
 				MODULE_VERSION = 1.0.0d1;
 				"OTHER_CPLUSPLUSFLAGS[arch=*]" = "-Wno-inconsistent-missing-override";
 				PRODUCT_BUNDLE_IDENTIFIER = me.kishorprins.VoodooI2CFTE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
 				WRAPPER_EXTENSION = kext;
 			};
 			name = Release;
