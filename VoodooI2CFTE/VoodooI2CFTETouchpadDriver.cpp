@@ -43,7 +43,7 @@ bool VoodooI2CFTETouchpadDriver::init(OSDictionary *properties) {
     awake = true;
     ready_for_input = false;
     read_in_progress = false;
-    strncpy(FTE_name, FTE_NAME, strlen(FTE_NAME));
+    strlcpy(FTE_name, FTE_NAME, sizeof(FTE_name));
     return true;
 }
 
@@ -281,7 +281,7 @@ VoodooI2CFTETouchpadDriver* VoodooI2CFTETouchpadDriver::probe(IOService* provide
         IOLog("%s::%s FTE device not found, instead found %s\n", getName(), FTE_name, acpi_name);
         return NULL;
     }
-    strncpy(device_name, acpi_name, 10);
+    strlcpy(device_name, acpi_name, sizeof(device_name));
     IOLog("%s::%s FTE device found (%s)\n", getName(), FTE_name, device_name);
     api = OSDynamicCast(VoodooI2CDeviceNub, provider);
     if (!api) {
